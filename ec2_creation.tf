@@ -15,11 +15,13 @@ resource "aws_instance" "this" {
   ebs_block_device {
     device_name = "/dev/sda1"
     volume_size = var.instance_volume_size
+    encrypted     = true
   }
   monitoring = true
-  root_block_device {
-  encrypted     = true
-  }
+
+  #root_block_device {
+  #encrypted     = true
+  #}
   metadata_options {
     http_endpoint = "enabled"
     http_tokens   = "required"
