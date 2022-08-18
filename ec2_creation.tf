@@ -14,11 +14,12 @@ resource "aws_instance" "this" {
     volume_size = var.instance_volume_size
   }
   monitoring = true
-  ebs_block_device {
+  root_block_device {
   encrypted     = true
   }
   metadata_options {
     http_endpoint = "enabled"
+    http_tokens   = "required"
   }
   tags = {
     "Name"      = var.instance_name
