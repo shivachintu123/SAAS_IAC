@@ -6,6 +6,9 @@ resource "aws_instance" "this" {
   key_name               = var.key_name
   vpc_security_group_ids = ["${aws_security_group.public.id}"]
   subnet_id              = aws_subnet.terraform-subnet_1.id
+
+  ecs_associate_public_ip_address = "true"
+
   #ebs_optimized          = aws_ebs_volume.example.id
   
   
