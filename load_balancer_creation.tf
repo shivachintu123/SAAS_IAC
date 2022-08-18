@@ -11,4 +11,8 @@ resource "aws_lb" "sample_lb" {
          Environment = "Production"
          Role        = "Sample-Application"
     }
+    drop_invalid_header_fields = true
+    access_logs {
+      enabled = true
+    }
 }

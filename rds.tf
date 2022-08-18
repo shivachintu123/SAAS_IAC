@@ -38,6 +38,6 @@ resource "aws_db_instance" "default" {
   final_snapshot_identifier = var.db_final_snapshot_identifier
 
   monitoring_interval       = true
-  
+  storage_encrypted = true
   #storage_encrypted = true
 }

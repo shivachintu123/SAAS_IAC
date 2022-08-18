@@ -26,6 +26,7 @@ resource "aws_security_group_rule" "public_in_ssh" {
   to_port           = 22
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
+  description = "ssh port"
   security_group_id = aws_security_group.public.id
 }
  
@@ -35,6 +36,7 @@ resource "aws_security_group_rule" "public_in_http" {
   to_port           = 8080
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
+  description = "open to world"
   security_group_id = aws_security_group.public.id
 }
  
@@ -44,6 +46,7 @@ resource "aws_security_group_rule" "public_in_https" {
   to_port           = 443
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
+  description = "open to world for https"
   security_group_id = aws_security_group.public.id
 }
 
@@ -53,6 +56,7 @@ resource "aws_security_group_rule" "public_in_eighty" {
   to_port           = 80
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
+  description = "open to world for http"
   security_group_id = aws_security_group.public.id
 }
 
@@ -62,5 +66,6 @@ resource "aws_security_group_rule" "public_in_clamav" {
   to_port           = 8999
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
+  description = "open to world for clam av"
   security_group_id = aws_security_group.public.id
 }

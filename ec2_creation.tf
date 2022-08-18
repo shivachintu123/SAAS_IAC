@@ -13,7 +13,13 @@ resource "aws_instance" "this" {
     device_name = "/dev/sda1"
     volume_size = var.instance_volume_size
   }
-  
+  monitoring = true
+  ebs_block_device {
+  encrypted     = true
+  }
+  metadata_options {
+    http_endpoint = "enabled"
+  }
   tags = {
     "Name"      = var.instance_name
     "Terraform" = "true"
