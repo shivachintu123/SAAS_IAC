@@ -52,5 +52,19 @@ output "WAF_rule_name" {
   value = aws_wafregional_rule.foo.name
 }
 
+############################################## RDS ##############
 
+output "password" {
+  value = aws_db_instance.default.password
+  sensitive = true
+}
+output "username" {
+  value = aws_db_instance.default.username
+}
+output "rds_endpoint" {
+  value = "${aws_db_instance.default.endpoint}"
+}
 
+output "secret_manager_name" {
+  value = aws_secretsmanager_secret.password.name
+}
