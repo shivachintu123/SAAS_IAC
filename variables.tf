@@ -7,7 +7,7 @@ variable "instance_count" {
 variable "instance_name" {
   description = "Name of instances"
   type        = string
-  default     = "testingSAAS"
+  default     = "bcuisaas"
 }
 
 variable "instance_volume_size" {
@@ -31,7 +31,7 @@ variable "key_name" {
 variable "DNS_name" {
   description = "Name of domain you want to take from aws"
   type        = string
-  default     = "saastesting.ovaledge.net"
+  default     = "bcuisaas.ovaledge.net"
 }
 
 variable "ami" {
@@ -43,7 +43,7 @@ variable "ami" {
 variable "security_group_name" {
   description = "name of the security group"
   type        = string
-  default     = "testingSAAS"
+  default     = "bcuisaas"
 }
 
 ############################################################
@@ -63,7 +63,7 @@ variable "security_group_name" {
 variable "subnet1_name" {
   description = "name of the subnet1"
   type        = string
-  default     = "testingSAASsubnet1"
+  default     = "bcuisaassubnet1"
 }
 
 variable "subnet1_cidr_block" {	
@@ -75,7 +75,7 @@ variable "subnet1_cidr_block" {
 variable "subnet2_name" {
   description = "name of the subnet2"
   type        = string
-  default     = "testingSAASsubnet2"
+  default     = "bcuisaassubnet2"
 }
 
 variable "subnet2_cidr_block" {
@@ -88,13 +88,13 @@ variable "subnet2_cidr_block" {
 variable "target_group_name" {
   description = "name of the target group"
   type        = string
-  default     = "testingSAAS"
+  default     = "bcuisaas"
 }
 
 variable "load_balancer_name" {
   description = "name of the load balancer"
   type        = string
-  default     = "testingSAAS"
+  default     = "bcuisaas"
 }
 
 variable "WAF_ip_address_to_allow_access" {
@@ -106,19 +106,19 @@ variable "WAF_ip_address_to_allow_access" {
 variable "WAF_rule_name" {
   description = "name of the WAF rule"
   type        = string
-  default     = "testingSAAS"
+  default     = "bcuisaas"
 }
 
 variable "WAF_ipset_name" {
   description = "name of the WAF ipset"
   type        = string
-  default     = "testingSAAS"
+  default     = "bcuisaas"
 }
 
 variable "WAF_web_acl_name" {
   description = "name of the WAF web acl"
   type        = string
-  default     = "testingSAAS"
+  default     = "bcuisaas"
 }
 
 variable "health_check" {
@@ -145,7 +145,7 @@ variable "db_name" {
 variable "db_identifier" {
   type        = string
   description = "rds mysql name to identify "
-  default     = "testingsaas"
+  default     = "bcuisaas"
 }
 variable "engine" {
   type        = string
@@ -161,13 +161,13 @@ variable "db_class" {
 variable "secretmanager_name" {
   type = string
   description = "secret manager name"
-  default = "testingsaastest"
+  default = "bcuisaas"
 }
 
 variable "db_subnetgroupname" {
   type        = string
   description = "db subnet group name belongs to"
-  default     = "testingsaas"
+  default     = "bcuisaas"
 }
 
 variable "db_username" {
@@ -206,13 +206,13 @@ variable "db_backup_retention_period" {
 variable "oe_secret_managername" {
   type        = string
   description = "Secret manager name to create"
-  default     = "testingSAAS"
+  default     = "bcuisaas"
 }
 
 variable "db_final_snapshot_identifier" {
   type = string
   description = "wgile destroying final snapshot identifier"
-  default = "testingSAAS"
+  default = "bcuisaas"
 }
 
 

@@ -5,9 +5,6 @@ resource "aws_wafregional_ipset" "ipset" {
     type  = "IPV4"
     value = var.WAF_ip_address_to_allow_access
   }
-  tags = {
-    Name = var.WAF_ipset_name
-  }
 }
 
 resource "aws_wafregional_rule" "foo" {
@@ -18,9 +15,6 @@ resource "aws_wafregional_rule" "foo" {
     data_id = aws_wafregional_ipset.ipset.id
     negated = false
     type    = "IPMatch"
-  }
-  tags = {
-    Name = var.WAF_rule_name
   }
 }
 
@@ -39,9 +33,6 @@ resource "aws_wafregional_web_acl" "foo" {
 
     priority = 1
     rule_id  = aws_wafregional_rule.foo.id
-  }
-    tags = {
-    Name = var.WAF_web_acl_name
   }
 }
 

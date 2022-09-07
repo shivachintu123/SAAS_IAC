@@ -1,7 +1,7 @@
 resource "aws_lb" "sample_lb" {
     #for_each           = var.alb_names
     #name               = each.value
-	name                = var.load_balancer_name
+    name                = var.load_balancer_name
     internal           = false
     load_balancer_type = "application" 
     security_groups    = ["${aws_security_group.public.id}"]
@@ -10,9 +10,5 @@ resource "aws_lb" "sample_lb" {
     tags = {
          Environment = "Production"
          Role        = "Sample-Application"
-    }
-    drop_invalid_header_fields = true
-    access_logs {
-      enabled = true
     }
 }

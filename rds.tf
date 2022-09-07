@@ -5,7 +5,7 @@ resource "random_password" "password" {
 terraform {
   backend "s3" {
     bucket = "terraformstateovaledgetest1"
-    key    = "ovaledge4"
+    key    = "ovaledge5/terraform.tfstate"
     region = "us-east-1"
 
   }
@@ -21,23 +21,23 @@ resource "aws_db_instance" "default" {
   db_name                   = var.db_name
   username                  = var.db_username
   #"${jsondecode(aws_secretsmanager_secret_version.password.secret_string["username"])}"
-  #var.db_username
   port                      = var.db_port
   password                  = "${random_password.password.result}"
   #random_password.password.result
   parameter_group_name      = "default.mysql5.7"
   skip_final_snapshot       = true
   deletion_protection       = false
-
   publicly_accessible       = false
-
   db_subnet_group_name      = "${aws_db_subnet_group.default.name}"
   #var.db_subnetgroupname
-  #var.db_subnetgroupname
-  backup_retention_period   = var.db_backup_retention_period
+  
+  backup_retention_period   = 7
+  backup_window             = "11:00-12:00"
+  multi_az = true
+  
+  #backup_retention_period   = var.db_backup_retention_period
   final_snapshot_identifier = var.db_final_snapshot_identifier
-
-  monitoring_interval       = true
+  
+  
   storage_encrypted = true
-  #storage_encrypted = true
 }
